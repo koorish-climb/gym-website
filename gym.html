@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GYM</title>
+    <style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        scroll-behavior: smooth;
+    }
+    body {
+        width: 100%;
+        min-height: 100vh;
+        font-family: Arial, Helvetica, sans-serif;
+       
+        overflow-x: hidden;
+
+    }
+    .header{
+        position: fixed;
+        z-index:1000;
+        display: flex;
+        gap:30px;
+        background-color: black;
+        width: 100%;
+        max-height: 20vh;
+    }
+    .header .img img{
+        width: 100px;
+        height: 100px;
+        margin-left: 5px;
+        margin-top: 10px;
+
+    }
+    .header .img img:hover{
+        transform: scale(1.1);
+        transition: 0.3s;
+    }
+
+    .header .slogan{
+        margin-top:30px;
+        margin-left:20px;
+        line-height: 25px;
+    }
+    .header .slogan p:hover{
+        transform: scale(1.1);
+        transition: 0.3s;
+
+    }
+
+    .header .nav{
+      
+        margin-top: 20px;
+        display: flex;
+        flex-direction: row;
+        gap:20px;
+        font-size: 20px;
+        margin-left: 50px;
+       
+        
+        
+    }
+     .header .nav a{
+        color:rgb(219, 241, 20);
+     }
+
+
+
+     .header .nav a:hover{     
+        transform: scale(1.1);
+        transition: 0.3s;
+        color:rgba(163, 18, 18, 0.795);
+     }
+
+     .home .content{
+        width: 50%;
+        margin-top:-700px;
+        margin-left: 30px;
+        min-height: 100vh;
+    
+        color:white;
+        font-size: 25px;
+        line-height: 25px;
+     }
+     .home .content h2:hover{
+        transform:translate(30px);
+        transition: 0.3s;
+     }
+
+     .gold{
+        
+        padding:25px 50px;
+        border-radius: 10px;
+        color:rgb(201, 13, 13);
+        background-color: gold;
+
+     }
+     .gold:hover{
+        transition: 0.3s;
+        transform:scale(1.1);
+        background-color: transparent;
+        color:gold;
+     }
+      .red{
+        padding:25px 50px;
+        border-radius: 10px;
+        color:gold;
+        background-color: red;
+
+     }
+
+     .red:hover{
+        transition: 0.3s;
+        transform:scale(1.1);
+        background-color: transparent;
+        color:rgb(236, 69, 2);
+     }
+
+     .pgms{
+        min-height: 100vh;
+        margin-top: 90px;
+        background-color:antiquewhite;
+    
+     }
+
+     .pgms .heading
+     {
+        text-align: center;
+     }
+
+     .pgms .allpgms
+     {
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap:20px;
+
+     }
+     .pgms .allpgms .program
+     {
+      text-align: center;
+      line-height: 3;  
+      border:3px solid black;
+      border-radius: 5px;
+        transition: 0.3s;
+     }
+     .pgms .allpgms .program:hover{
+        border-color: gold;
+        background-color:red;
+        transform: scale(1.1);
+        color: gold;
+      
+     }
+
+     .gallary{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        column-gap:10px;
+        row-gap: 10px;
+     }
+
+     .gallary h2{
+        text-align: center;
+     }
+
+     .gallary img{
+        width: 100%;
+        height: 100%;
+        transition: 0.3s;
+     }
+
+      .gallary img:hover{
+        transform: scale(1.1);
+      }
+      
+      .time{
+        width: 100%;
+        overflow: hidden;
+        text-align: center;
+        min-height: 100vh;
+      }
+      .time table{
+        width: 100%;
+        border-collapse: collapse;
+        border:3px solid black;
+
+    }
+    .time th,td{
+        border: 3px solid black;
+        padding:25px 10px;
+        font-size: larger;
+        background-color: goldenrod;
+    }
+
+    .time th{
+        background-color: red;
+        transition: 0.3s;
+    }
+     .time th:hover{
+        transform: scale(1.1);
+     }
+     .time tr:hover{
+        background-color: red;
+        transform: scale(1.1);
+        transition: 0.3s;
+     }
+
+     .membership{
+        min-height: 100vh;
+        text-align: center;
+        background-color: rgb(248, 28, 28);
+        
+        
+     }
+     .membership .membox{
+        display:grid;
+        grid-template-columns: repeat(3,1fr);
+        gap:30px;
+
+     }
+
+     .membership .membox .box{
+        text-align: center;
+        line-height: 2.5;
+        border: 3px solid black;
+         border-radius: 20px;
+         background-color: black;
+         height: 140%;
+         color:aliceblue;
+     }
+     .membership .membox .box:hover{
+        
+        transform: scale(1.1);
+        transition: 0.3s;
+     }
+
+     .membership .membox .box-gold{
+        text-align: center;
+        line-height: 2.5;
+        border: 3px solid  goldenrod;
+        border-radius: 20px;
+        background-color: gold;
+        height: 160%;
+        color: black;
+     }
+
+      .membership .membox .box-gold:hover{
+        
+        transform: scale(1.1);
+        transition: 0.3s;
+     }
+
+     .testimonials{
+        width: 100%;
+        min-height: 100vh;
+        margin-top: 80px;
+        background-color:bisque
+     }
+     .testimonials .heading{
+        text-align: center;
+     }
+     .testimonials .testall{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap:20px;
+        
+     }
+     .testimonials .testbox{
+
+     border: 3px solid black;
+     line-height: 2;
+     padding:10px 20px;
+     font-family: cursive;
+     }
+      .testimonials .testbox:hover{
+        transform: scale(1.1);
+        transition: 0.3s;
+        border-radius: 10px;
+        border: gold;
+        background-color:deeppink;
+      }
+
+      .enquire{
+        width: 100%;
+        display: flex;
+        gap:20px;
+        background-color: deeppink;
+        min-height: 100vh;
+      }
+
+      .enquire .img img{
+        width: 50%;
+        width: 600px;
+        height: 670px;
+      }
+      .enquire .img img:hover{
+        transform: scale(1.1);
+        transition: 0.3s;
+      }
+
+      .contact{
+           background-color:yellow;
+      }
+
+      .contact .full{
+    display:flex;
+ 
+}
+.contact .full .flex1{
+    width:50%;
+}
+
+.contact .full .flex2{
+    width:70%;
+}
+
+.contact .full .flex1 .contact-box{
+    line-height: 2;
+    margin-left: 60px;
+}
+
+
+
+
+
+
+
+
+
+
+
+     
+
+    
+    
+        
+
+
+
+    
+
+</style>
+</head>
+
+<body>
+    <header>
+        <section class="header">
+            <div class="img">
+                <img src="gym.jpg"   alt="gym img">
+            </div>
+            <div class="slogan">
+                <h2 style="color:rgb(214, 212, 212);">IRONCORE FITNESS</h2>
+                <br>
+                <strong><i><p style="color: rgba(185, 182, 182, 0.918);">Build Strength <br> Shape Your Future</p>
+               </i> </strong> 
+            </div>
+            <div class="nav">
+                
+                <a href="#pgms">Programs</a>
+                <a href="#time">TimeTable</a>
+                <a href="#membership">Membership</a>
+                <a href="#gallary">Gallery</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#enquire">Enquire</a>
+                <a href="#contact">Contact us</a>
+            </div>
+
+            <div class="watsapp" id="contact">
+                <a href="#contact"><img src="wat.jpg" style="margin-top:130px;width:80px; height: 80px;"></a>
+
+            </div>
+        </section>
+        
+    </header>
+<section class="home" id="home">
+<div class="img">
+    <img src="gym logo.jpeg">
+</div>
+<div class="content">
+    <h2 style="color: gold;">HOME</h2><br>
+    <p>Transform your body | Create your Legacy
+
+    </p><br> 
+    <p style="line-height: 35px; color:red">Your dream body begins with sigle step. Experience our 
+        world class equipment, professional guidance and motivating environment
+        designed to push your comfort zone and deliver real results.
+
+    </p><br><br>
+    <a href="pgms" class="gold">Explore us</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="Enquire" class="red">Book a free trial</a>
+</div>
+</section>
+
+
+<section class="pgms" id="pgms">
+<div class="heading">
+    <h2 style="color:rgb(209, 40, 48)">OUR PROGRAMS</h2><br>
+    <p>Choose Your Program. Transform Your Body.</p><br><br>
+</div>
+
+<div class="allpgms">
+
+    <div class="program">
+        <h3>Strength Training</h3>
+        <p>Build muscle, increase strength, and develop a powerful body.</p>
+        <a href="#">Learn More</a>
+    </div>
+
+    <div class="program">
+        <h3>Weight Training</h3>
+        <p>Improve muscle growth and achieve your fitness goals.</p>
+        <a href="#">Learn More</a>
+    </div>
+
+    <div class="program">
+        <h3>Fat Loss</h3>
+        <p>Burn calories, reduce body fat, and improve your fitness.</p>
+        <a href="#">Learn More</a>
+    </div>
+
+    <div class="program">
+        <h3>Cardio Training</h3>
+        <p>Boost stamina, improve heart health, and build endurance.</p>
+        <a href="#">Learn More</a>
+    </div>
+
+    <div class="program">
+        <h3>Yoga & Flexibility</h3>
+        <p>Improve flexibility, balance, mobility, and relaxation.</p>
+        <a href="#">Learn More</a>
+    </div>
+
+    <div class="program">
+        <h3>Personal Training</h3>
+        <p>Get personalized workouts designed around your fitness goals.</p>
+        <a href="#">Learn More</a>
+    </div>
+
+</div></section>
+
+
+<section class="gallary" id="gallary">
+    <h2 style="color: red;text-align: center;font-size: 30px;"> Have a Look Inside Our Gym</h2><br>
+    <br><br><img src="equip.jpeg">
+    <img src="fatloss.jpeg">
+    <img src="mendumb.jpeg">
+    <img src="steam.jpeg">
+    <img src="womendumb.jpeg">
+    <img src="pers.jpeg">
+   
+
+</section>
+
+
+<section class="time" id="time">
+    <div class="heading">
+        <h2>Stick to this TimeTable </h2><br><br>
+        <table>
+            <tr>
+                <th>Days</th>
+                <th>5 A.M</th>
+                <th>7 A.M</th>
+                <th>10 A.M</th>
+                <th>5 P.M</th>
+                <th>7 P.M</th>
+                <th>9 P.M</th>
+               
+            </tr>
+            <tr>
+                <td>MONDAY</td>
+                  <td>Champions</td>
+                    <td>Professionals</td>
+                      <td>House Wives</td>
+                        <td>Kids</td>
+                          <td>Professionals</td>
+                            <td>Champions</td>
+
+            </tr>
+            <tr>
+            <td>TUESDAY</td>
+            <td>Champions</td>
+            <td>Professionals</td>
+            <td>House Wives</td>
+            <td>Kids</td>
+            <td>Professionals</td>
+            <td>Champions</td>
+        </tr>
+
+         <tr>
+            <td>WEDNESDAY</td>
+            <td>Champions</td>
+            <td>Professionals</td>
+            <td>House Wives</td>
+            <td>Kids</td>
+            <td>Professionals</td>
+            <td>Champions</td>
+        </tr>
+
+
+         <tr>
+            <td>THURSDAY</td>
+            <td>Champions</td>
+            <td>Professionals</td>
+            <td>House Wives</td>
+            <td>Kids</td>
+            <td>Professionals</td>
+            <td>Champions</td>
+        </tr>
+
+         <tr>
+            <td>FRIDAY</td>
+            <td>Champions</td>
+            <td>Professionals</td>
+            <td>House Wives</td>
+            <td>Kids</td>
+            <td>Professionals</td>
+            <td>Champions</td>
+        </tr>
+
+
+         <tr>
+            <td>SATURDAY</td>
+            <td>Champions</td>
+            <td>Professionals</td>
+            <td>House Wives</td>
+            <td>Kids</td>
+            <td>Professionals</td>
+            <td>Champions</td>             
+        </tr>
+
+        </table>
+    </div>
+</section>
+
+
+<section class="membership" id="membership">
+
+    <div class="heading">
+        <h2>Our Membership Plans</h2><br><br>
+        <p>Choose the Perfect Plan for Your Fitness Journey</p><br><br>
+    </div>
+
+    <div class="membox">
+
+        <div class="box">
+            <h3>Basic Plan</h3>
+            <h2>₹999 <span>/ Month</span></h2>
+            <p>Gym Access</p>
+            <p>Basic Equipment</p>
+            <p>Locker Facility</p>
+            <p>Fitness Guidance</p>
+            <a href="#contact">Join Now</a>
+        </div>
+
+        
+
+        <div class="box-gold">
+            <h3>Premium Plan</h3>
+            <h2>₹1999 <span>/ Month</span></h2>
+            <p>Full Gym Access</p>
+            <p>Personal Fitness Guidance</p>
+            <p>Cardio & Strength Training</p>
+            <p>Diet Guidance</p>
+            <a href="#contact">Join Now</a>
+        </div>
+
+       
+
+        <div class="box">
+            <h3>Personal Training</h3>
+            <h2>₹3999 <span>/ Month</span></h2>
+            <p>One-to-One Training</p>
+            <p>Custom Workout Plan</p>
+            <p>Fitness Assessment</p>
+            <p>Progress Monitoring</p>
+            <a href="#contact">Join Now</a>
+        </div>
+
+       
+
+    </div>
+
+</section>
+
+
+
+<section class="testimonials" id="testimonials">
+
+    <div class="heading">
+        <br><br><h2 style="color: gold;">WHAT OUR MEMBERS SAY</h2><br><br>
+        <p style="color: black; font-family:'Times New Roman', Times, serif;font-size: 20px;">Real stories. Real results. Real transformations.</p><br><br>
+    </div>
+
+    <div class="testall">
+
+        <div class="testbox">
+      
+            <h3>Rahul Kumar</h3>
+            <h4>⭐⭐⭐⭐⭐</h4>
+            <p>Royal Gym helped me build strength and confidence. The trainers are supportive and the equipment is excellent.</p>
+        </div>
+
+        <div class="testbox">
+           
+            <h3>Priya Sharma</h3>
+            <h4>⭐⭐⭐⭐⭐</h4>
+            <p>I joined for weight loss and have seen great progress. The workout plans are effective and easy to follow.</p>
+        </div>
+
+        <div class="testbox">
+           
+            <h3>Arun Raj</h3>
+            <h4>⭐⭐⭐⭐⭐</h4>
+            <p>The personal trainers guide me at every step. I feel stronger, healthier and more motivated every day.</p>
+        </div>
+
+        <div class="testbox">
+           
+            <h3>Divya Ramesh</h3>
+            <h4>⭐⭐⭐⭐⭐</h4>
+            <p>A clean gym with modern equipment and friendly trainers. I really enjoy my daily workout sessions here.</p>
+        </div>
+
+        <div class="testbox">
+        
+            <h3>Karthik S</h3>
+            <h4>⭐⭐⭐⭐⭐</h4>
+            <p>The strength training programs are excellent. The trainers help me improve my technique and reach my fitness goals.</p>
+        </div>
+
+        <div class="testbox">
+           
+            <h3>Meena Devi</h3>
+            <h4>⭐⭐⭐⭐⭐</h4>
+            <p>Royal Gym has made fitness a part of my lifestyle. The atmosphere is motivating, energetic and welcoming.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="enquire" id="enquire">
+
+
+    <div class="img">
+        <img src="contact.jpeg" alt="Gym Training">
+    </div>
+
+   
+    <div class="content" style="text-align: center;">
+
+        <h2>ENQUIRE US</h2><br><br>
+
+        <h3>Start Your Fitness Journey Today!</h3><br><br>
+
+        <p style="line-height: 2;">
+            Join our fitness community and take the first step
+            towards a stronger, healthier, and more confident you.
+        </p><br><br>
+
+       <form>
+        
+        Name:&nbsp;&nbsp;&nbsp;<input type="name" placeholder="Enter your name" style="padding:10px 30px"><br><br>
+        Age :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="number"placeholder="Enter your age" style="padding:10px 30px"><br><br>
+       Mobile:&nbsp; <input type="tel" placeholder="ener your phone number" style="padding:10px 30px"><br><br>
+       E-mail:&nbsp; <input type="email" placeholder="ener your mail id" style="padding:10px 30px"><br><br>
+       query box: <br><br> <textarea rows="10" cols="45" placeholder="Ask your query here"></textarea><br><br>
+       <button style="padding:10px 25px; border-radius: 15px; background-color:yellow;">submit</button>&nbsp; &nbsp;&nbsp;
+         <button style="padding:10px 25px; border-radius: 15px; background-color:rgb(255, 81, 0);">reset</button>&nbsp; &nbsp;&nbsp;
+    
+    
+    </form>
+
+    </div>
+
+</section>
+
+
+
+
+<section class="contact" id="contact">
+    <div class="heading" style="text-align: center;">
+    <br><br><h2>CONTACT US</h2><br><br>
+    <p>Visit Us Today and Start Your Fitness Journey!</p><br><br>
+</div>
+
+
+<div class="full">
+<div class="flex1">
+
+    <div class="contact-box">
+        <h3>📍 Our Location</h3>
+        <p>Royal Fitness Gym</p>
+        <p>Erode, Tamil Nadu</p>
+    </div>
+
+    <div class="contact-box">
+        <h3>📞 Call Us</h3>
+        <p>+91 98765 43210</p>
+    </div>
+
+    <div class="contact-box">
+        <h3>✉️ Email Us</h3>
+        <p>royalfitness@gmail.com</p>
+    </div>
+
+    <div class="contact-box">
+        <h3>🕒 Opening Hours</h3>
+        <p>Monday – Saturday</p>
+        <p>5:00 AM – 10:00 PM</p>
+    </div>
+
+</div>
+
+<div class="flex2">
+    <iframe
+        src="https://maps.google.com/maps?q=Erode,Tamil%20Nadu&output=embed"
+        width="100%"
+        height="350"
+        style="border:0;"
+        loading="lazy">
+    </iframe>
+</div>
+
+</div>
+
+</section>
+
+
+
+
+</body>
+</html>
